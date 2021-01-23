@@ -1871,21 +1871,6 @@ var userInterface = window.userInterface = (function (window, document) {
                 if (e.keyCode === 79) {
                     userInterface.toggleMobileRendering(!window.mobileRender);
                 }
-                // Letter 'A' to increase collision detection radius
-                if (e.keyCode === 65) {
-                    bot.opt.radiusMult++;
-                    console.log(
-                        'radiusMult set to: ' + bot.opt.radiusMult);
-                }
-                // Letter 'S' to decrease collision detection radius
-                if (e.keyCode === 83) {
-                    if (bot.opt.radiusMult > 1) {
-                        bot.opt.radiusMult--;
-                        console.log(
-                            'radiusMult set to: ' +
-                            bot.opt.radiusMult);
-                    }
-                }
                 // Letter 'Z' to reset zoom
                 if (e.keyCode === 90) {
                     canvas.resetZoom();
@@ -1971,11 +1956,10 @@ var userInterface = window.userInterface = (function (window, document) {
             // Set static display options here.
             var oContent = [];
             var ht = userInterface.handleTextColor;
-
+            oContent.push('After game start use:' );
+            oContent.push('Made by: Hayden Cahoon' );
             oContent.push('version: ' + GM_info.script.version);
             oContent.push('[T] bot: ' + ht(bot.isBotEnabled));
-            oContent.push('[O] mobile rendering: ' + ht(window.mobileRender));
-            oContent.push('[A/S] radius multiplier: ' + bot.opt.radiusMult);
             oContent.push('[I] auto respawn: ' + ht(window.autoRespawn));
             oContent.push('[Y] visual debugging: ' + ht(window.visualDebugging));
             oContent.push('[U] log debugging: ' + ht(window.logDebugging));
